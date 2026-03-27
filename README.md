@@ -1,30 +1,119 @@
-# Darija Translation API
+#   Darija Translator API
 
-A RESTful API service built with Jakarta EE that translates texts from Latin languages to Moroccan Darija (Arabic dialect) using Google Gemini 1.5 Flash for natural language processing.
+> Service RESTful Jakarta EE propulsé par **Google Gemini 1.5 Flash** pour traduire des textes latins vers le darija marocain (الدارجة).
 
-## 📋 Overview
+---
 
-This project provides a simple yet powerful translation service that converts text from Latin languages (such as French, Spanish, Italian, etc.) into Moroccan Darija, the spoken Arabic dialect in Morocco. It leverages Google's Gemini 1.5 Flash AI model for accurate and context-aware translations.
+##  Stack technique
 
-##  Technologies
+| Technologie | Version | Rôle |
+|---|---|---|
+| Jakarta EE | 10 | Framework backend |
+| Java SE | 17 | Runtime |
+| JAX-RS | — | API RESTful |
+| Google Gemini | 1.5 Flash | Moteur de traduction IA |
+| Maven Wrapper | — | Build tool |
 
-- **Jakarta EE 10** - Enterprise Java specification
-- **Java SE 17** - Java Development Kit
-- **JAX-RS** - RESTful web services
-- **Maven** - Dependency management and build tool
-- **Google Gemini 1.5 Flash** - AI-powered translation engine
-- **Jakarta EE Compatible Servers** - WildFly, GlassFish, Payara, etc.
+> Compatible avec tout serveur Jakarta EE : **WildFly**, **GlassFish**, **Payara**, etc.
 
-##  Prerequisites
+---
 
-- Java 17 or higher
-- Maven (or use the included Maven wrapper)
-- Google Gemini API key
+##  Installation & Build
 
-## Installation & Setup
-
-### 1. Clone the repository
-
+**Prérequis :** Java 17 installé
 ```bash
-git clone <repository-url>
-cd <project-directory>
+# 1. Cloner le dépôt
+git clone https://github.com/votre-user/votre-repo.git
+cd votre-repo
+
+# 2. Build
+./mvnw clean package          # Linux / macOS
+mvnw.cmd clean package        # Windows
+```
+
+Le build génère : `target/jakartaee-hello-world.war`
+```bash
+# 3. Déployer sur WildFly (exemple)
+cp target/jakartaee-hello-world.war $WILDFLY_HOME/standalone/deployments/
+```
+
+---
+
+##  Utilisation
+
+Base URL : `http://localhost:8080/jakartaee-hello-world`
+
+### `POST /api/translate`
+
+Traduit un texte latin vers le darija marocain.
+
+**Request**
+```http
+POST /api/translate
+Content-Type: application/json
+```
+```json
+{
+  "text": "Salve! Quid agis?"
+}
+```
+
+**Response**
+```json
+{
+  "response": "سلام! كيداير؟"
+}
+```
+
+**Exemple curl**
+```bash
+curl -X POST http://localhost:8080/jakartaee-hello-world/api/translate \
+  -H "Content-Type: application/json" \
+  -d '{"text": "Salve! Quid agis?"}'
+```
+
+**Exemple Postman**
+```
+Method  : POST
+URL     : http://localhost:8080/jakartaee-hello-world/api/translate
+Headers : Content-Type: application/json
+Body    : raw → JSON → { "text": "Bonjour, comment vas-tu?" }
+```
+
+---
+
+##  Structure du projet
+```
+jakartaee-hello-world/
+├── src/
+│   └── main/
+│       ├── java/
+│       │   └── ...RestApplication.java   ← point d'entrée JAX-RS
+│       │   └── ...TranslateResource.java ← endpoint /api/translate
+│       └── webapp/
+│           └── WEB-INF/
+│               └── web.xml
+├── pom.xml
+├── mvnw / mvnw.cmd
+└── README.md
+```
+
+---
+
+##  Configuration
+
+Avant de lancer, définir la clé API Gemini :
+```bash
+# Variable d'environnement
+export GEMINI_API_KEY=your_api_key_here
+```
+
+> Obtenir une clé gratuite sur [Google AI Studio](https://aistudio.google.com/app/apikey)
+
+---
+
+##  Notes
+
+- Les langues sources supportées sont les langues à écriture latine (français, anglais, espagnol, latin, etc.)
+- La réponse est toujours en **darija marocain** écrit en **caractères arabes**
+- Généré à partir du **Eclipse Foundation Jakarta EE Starter**
