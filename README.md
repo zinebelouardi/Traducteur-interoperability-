@@ -98,19 +98,6 @@ jakartaee-hello-world/
 └── README.md
 ```
 
----
-
-##  Configuration
-
-Avant de lancer, définir la clé API Gemini :
-```bash
-# Variable d'environnement
-export GEMINI_API_KEY=your_api_key_here
-```
-
-> Obtenir une clé gratuite sur [Google AI Studio](https://aistudio.google.com/app/apikey)
-
----
 
 ##  Notes
 
