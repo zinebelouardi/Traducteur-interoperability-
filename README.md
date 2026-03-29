@@ -98,7 +98,8 @@ jakartaee-hello-world/
 └── README.md
 ```
 ## App mobile 
-![Architecture](capture_myapp.jpeg)
+
+<img src="capture_myapp.jpeg" width="300" height="200" />
 
 ##  Notes
 
