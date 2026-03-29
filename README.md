@@ -97,7 +97,8 @@ jakartaee-hello-world/
 ├── mvnw / mvnw.cmd
 └── README.md
 ```
-
+## App mobile 
+![Architecture](capture_myapp.jpeg)
 
 ##  Notes
 
