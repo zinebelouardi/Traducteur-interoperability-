@@ -99,7 +99,7 @@ jakartaee-hello-world/
 ```
 ## App mobile 
 
-<img src="capture_myapp.jpeg" width="300" height="200" />
+<img src="capture_myapp.jpeg" width="600" height="400" />
 
 ##  Notes
 
