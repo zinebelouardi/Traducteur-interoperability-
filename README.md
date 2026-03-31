@@ -37,7 +37,7 @@ Le build génère : `target/jakartaee-hello-world.war`
 cp target/jakartaee-hello-world.war $WILDFLY_HOME/standalone/deployments/
 ```
 ## ARCHITECTURE
-
+ ![Architecture](archi.png)
 ---
 
 ##  Utilisation
