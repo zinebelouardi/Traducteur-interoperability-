@@ -36,6 +36,7 @@ Le build génère : `target/jakartaee-hello-world.war`
 # 3. Déployer sur WildFly (exemple)
 cp target/jakartaee-hello-world.war $WILDFLY_HOME/standalone/deployments/
 ```
+## ARCHITECTURE
 
 ---
 
